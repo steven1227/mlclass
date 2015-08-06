@@ -28,7 +28,7 @@ def visualizeBoundary( X, trained_svm ):
 	if kernel == 'linear':
 		w 	= trained_svm.dual_coef_.dot( trained_svm.support_vectors_ ).flatten()
 		xp 	= linspace( min(X[:, 0]), max(X[:, 0]), 100 )
-		yp 	= (-w[0] * xp + trained_svm.intercept_) / w[1]
+		yp 	= (-w[0] * xp - trained_svm.intercept_) / w[1]
 		pyplot.plot( xp, yp, 'b-')
 		
 
